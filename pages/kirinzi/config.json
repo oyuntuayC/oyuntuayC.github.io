@@ -1,29 +1,32 @@
 {
   "title": "Kirinzi BBQ",
-  "description": "这里可以写一段简短描述，支持移动端展示",
+  "description": "",
   "background": "background.jpg",
   "logo": "logo.png",
   "buttons": [
     {
-      "text": "产品介绍",
-      "icon": "📦",
-      "image": "images/product.svg",
+      "text": "Buffet del Dia 17,95€",
+      "subtitle": "*De Lunes a Viernes de Dia",
+      "icon": "🌞",
+      "image": "images/Buffet del Dia.png",
       "link": "https://example.com/product?ref={ref}",
-      "linkText": "查看详情"
+      "linkText": "Ver Carta"
     },
     {
-      "text": "联系我们",
-      "icon": "📧",
-      "image": "images/contact.svg",
+      "text": "Buffet de Noche 22,95€",
+      "subtitle": "*De Lunes a Jueves de Noche",
+      "icon": "🌛",
+      "image": "images/Buffet de Noche.png",
       "link": "https://example.com/contact?source={query}",
-      "linkText": "立即联系"
+      "linkText": "Ver Carta"
     },
     {
-      "text": "下载应用",
-      "icon": "📱",
-      "image": "images/download.svg",
+      "text": "Buffet de Fin de Semana 25,95€",
+      "subtitle": "*De Viernes Noche a Domingo",
+      "icon": "🎉",
+      "image": "images/Buffet de Fin de Semana.png",
       "link": "https://example.com/download?channel={channel}&ref={ref}",
-      "linkText": "立即下载"
+      "linkText": "Ver Carta"
     }
   ]
 }
