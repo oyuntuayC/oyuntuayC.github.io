@@ -132,14 +132,14 @@ class AutoIndex {
     }
 
     replaceQueryPlaceholder(url, queryString) {
-        // 替换 {query} 占位符
+        // 替换 {query} 占位符（整串原样保留，目标站可能自行解析）
         let result = url.replace(/\{query\}/g, queryString || '');
         
-        // 替换单个参数占位符 {paramName}
+        // 替换单个参数占位符 {paramName}，值会 encodeURIComponent 以免 +/= 等被误解析
         if (queryString) {
             const params = new URLSearchParams(queryString);
             params.forEach((value, key) => {
-                result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+                result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), encodeURIComponent(value));
             });
         }
         
@@ -250,7 +250,7 @@ class AutoIndex {
                     ${imageUrl ? `<img src="${imageUrl}" alt="${button.text}">` : ''}
                 </div>
                 <div class="image-link-float">
-                    <a href="${finalLink}" class="btn-card image-link-btn is-compact"${imageButtonVarsStyle} target="_blank" rel="noopener">
+                    <a href="${finalLink}" class="btn-card image-link-btn is-compact"${imageButtonVarsStyle}>
                         <div class="link-icon">↓</div>
                         <div class="link-text">
                             ${button.icon ? `<span class="icon">${button.icon}</span>` : ''}

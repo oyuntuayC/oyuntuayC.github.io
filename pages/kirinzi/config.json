@@ -2,6 +2,8 @@
   "title": "Kirinzi BBQ",
   "description": "",
   "background": "background.jpg",
+  "backgroundColor": "#ffffff",
+  "imageButtonBackgroundColor": "#000000",
   "logo": "logo.png",
   "buttons": [
     {
@@ -9,7 +11,7 @@
       "subtitle": "*De Lunes a Viernes de Dia",
       "icon": "🌞",
       "image": "images/Buffet del Dia.png",
-      "link": "https://example.com/product?ref={ref}",
+      "link": "http://es2.wok-cloud.com:2027/qrscan_web/QRCODE/?no={mesa}",
       "linkText": "Ver Carta"
     },
     {
@@ -17,15 +19,15 @@
       "subtitle": "*De Lunes a Jueves de Noche",
       "icon": "🌛",
       "image": "images/Buffet de Noche.png",
-      "link": "https://example.com/contact?source={query}",
+      "link": "http://es2.wok-cloud.com:2027/qrscan_web/QRCODE/?no={mesa}",
       "linkText": "Ver Carta"
     },
     {
       "text": "Buffet de Fin de Semana 25,95€",
       "subtitle": "*De Viernes Noche a Domingo",
       "icon": "🎉",
-      "image": "images/Buffet de Fin de Semana.png",
-      "link": "https://example.com/download?channel={channel}&ref={ref}",
+      "image": "images/Buffet Fin de Semana & Festivo.png",
+      "link": "http://es2.wok-cloud.com:2027/qrscan_web/QRCODE/?no={mesa}",
       "linkText": "Ver Carta"
     }
   ]
