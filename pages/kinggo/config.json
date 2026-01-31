@@ -1,42 +1,46 @@
 {
-  "title": "",
+  "title": "KINGGO SUSHI",
   "backgroundColor": "#ffffff",
   "imageButtonBackgroundColor": "#000000",
+  "fontFamily": "Ubuntu",
   "description": "En una mesa todos los comensales tienen que ser de la misma categoría",
   "background": "background.jpg",
-  "logo": "logo.png",
   "buttons": [
     {
       "text": "Buffet Mediodía 16.95€",
       "subtitle": "Lunes a Viernes 150 platos",
-      "icon": "🌞",
+      "icon": "",
       "image": "images/LUNES A VIERNES 16.95.png",
       "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
-      "linkText": "Ver Carta"
+      "linkText": "Ver Carta",
+      "backgroundColor": "#F3BA53"
     },
     {
       "text": "Buffet Mediodía 20.95€",
       "subtitle": "Lunes a Viernes 191 platos",
-      "icon": "🌞",
+      "icon": "",
       "image": "images/LUNES A VIERNES 20.95.png",
       "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
-      "linkText": "Ver Carta"
+      "linkText": "Ver Carta",
+      "backgroundColor": "#F3BA53"
     },
     {
       "text": "Buffet Noche 22.95€",
       "subtitle": "Lunes a Jueves 191 platos",
-      "icon": "🌛",
+      "icon": "",
       "image": "images/LUNES A VIERNES NOCHE 22.95.png",
       "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
-      "linkText": "Ver Carta"
+      "linkText": "Ver Carta",
+      "backgroundColor": "#46443F"
     },
     {
       "text": "Buffet 23.95€",
       "subtitle": "Fin de Semana y Festivo 191 platos",
-      "icon": "🎉",
+      "icon": "",
       "image": "images/FESTIVOS 23.95.png",
       "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
-      "linkText": "Ver Carta"
+      "linkText": "Ver Carta",
+      "backgroundColor": "#990000"
     }
   ]
 }

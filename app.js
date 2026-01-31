@@ -11,6 +11,8 @@
  * config.json 格式：
  * {
  *   "title": "页面标题",
+ *   "fontFamily": "Inter, sans-serif",   // 可选，自定义字体（会继承字重 400/600 等）
+ *   "fontUrl": "https://...",            // 可选，字体 CSS 链接；不填且填了 fontFamily 则自动用 Google Fonts 拉取 400,500,600,700
  *   "background": "background.jpg",
  *   "logo": "logo.png",
  *   "buttons": [
@@ -18,7 +20,9 @@
  *       "text": "按钮文字",
  *       "icon": "🎮",           // 可选图标
  *       "image": "images/pic.jpg",
- *       "link": "https://example.com?param={query}"
+ *       "link": "https://example.com?param={query}",
+ *       "backgroundColor": "rgba(255,255,255,0.12)",  // 可选，按钮背景色
+ *       "textColor": "#ffffff"                         // 可选，按钮文字色
  *     }
  *   ]
  * }
@@ -103,6 +107,30 @@ class AutoIndex {
         return `${this.basePath}/${pagePath}/${resource}`;
     }
 
+    /**
+     * 解析字体：若提供 fontUrl 则直接使用；若只提供 fontFamily 则自动生成 Google Fonts 链接（含 400,500,600,700 字重）
+     */
+    getFontUrl(config) {
+        if (config.fontUrl) return config.fontUrl;
+        if (!config.fontFamily) return null;
+        const familyName = config.fontFamily.split(',')[0].trim();
+        if (!familyName) return null;
+        return `https://fonts.googleapis.com/css2?family=${encodeURIComponent(familyName)}:wght@400;500;600;700&display=swap`;
+    }
+
+    ensureFont(config) {
+        const fontUrl = this.getFontUrl(config);
+        if (!fontUrl) return;
+        let link = document.querySelector('link[data-custom-font]');
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.setAttribute('data-custom-font', 'true');
+            document.head.appendChild(link);
+        }
+        if (link.href !== fontUrl) link.href = fontUrl;
+    }
+
     replaceQueryPlaceholder(url, queryString) {
         // 替换 {query} 占位符
         let result = url.replace(/\{query\}/g, queryString || '');
@@ -130,6 +158,7 @@ class AutoIndex {
     }
 
     renderButtonsPage(pagePath, config, queryString) {
+        this.ensureFont(config);
         const backgroundUrl = this.getResourcePath(pagePath, config.background);
         const logoUrl = this.getResourcePath(pagePath, config.logo);
         this.updatePageMeta(config.title || pagePath, config.description || '');
@@ -143,8 +172,10 @@ class AutoIndex {
         if (pageBackgroundColor) {
             backgroundStyleParts.push(`background-color: ${pageBackgroundColor}`);
         }
+        if (config.fontFamily) {
+            backgroundStyleParts.push(`font-family: ${config.fontFamily}`);
+        }
         const containerStyle = backgroundStyleParts.join('; ');
-        const buttonVarsStyle = this.buildStyleVars(pageButtonBackgroundColor, pageButtonTextColor);
 
         this.app.innerHTML = `
             <div class="page-container" style="${containerStyle}">
@@ -154,9 +185,13 @@ class AutoIndex {
                         <h1 class="page-title">${config.title || pagePath}</h1>
                         ${config.description ? `<p class="page-desc">${config.description}</p>` : ''}
                     </header>
-                    <div class="buttons-list"${buttonVarsStyle}>
-                        ${config.buttons.map((btn, idx) => `
-                            <div class="btn-card" data-index="${idx}">
+                    <div class="buttons-list">
+                        ${config.buttons.map((btn, idx) => {
+                            const bg = btn.backgroundColor ?? pageButtonBackgroundColor;
+                            const text = btn.textColor ?? pageButtonTextColor;
+                            const btnStyle = this.buildStyleVars(bg, text);
+                            return `
+                            <div class="btn-card" data-index="${idx}"${btnStyle}>
                                 <div class="btn-left">
                                     ${btn.icon ? `<div class="icon">${btn.icon}</div>` : ''}
                                     <div class="btn-titles">
@@ -166,7 +201,8 @@ class AutoIndex {
                                 </div>
                                 <div class="btn-right">›</div>
                             </div>
-                        `).join('')}
+                        `;
+                        }).join('')}
                     </div>
                 </div>
             </div>
@@ -195,11 +231,17 @@ class AutoIndex {
         const backUrl = `/${pagePath}${queryString ? '?' + queryString : ''}`;
         const imageTitle = button.text ? `${button.text} - ${config.title || pagePath}` : (config.title || pagePath);
         this.updatePageMeta(imageTitle, config.description || '');
+        this.ensureFont(config);
         const imageBackgroundColor = config.imageBackgroundColor || config.backgroundColor;
         const imageButtonBackgroundColor = config.imageButtonBackgroundColor || config.buttonBackgroundColor;
         const imageButtonTextColor = config.imageButtonTextColor || config.buttonTextColor;
-        const imagePageStyle = imageBackgroundColor ? ` style="background-color: ${imageBackgroundColor};"` : '';
-        const imageButtonVarsStyle = this.buildStyleVars(imageButtonBackgroundColor, imageButtonTextColor);
+        const imagePageStyleParts = [];
+        if (imageBackgroundColor) imagePageStyleParts.push(`background-color: ${imageBackgroundColor}`);
+        if (config.fontFamily) imagePageStyleParts.push(`font-family: ${config.fontFamily}`);
+        const imagePageStyle = imagePageStyleParts.length ? ` style="${imagePageStyleParts.join('; ')}"` : '';
+        const btnBg = button.backgroundColor ?? imageButtonBackgroundColor;
+        const btnText = button.textColor ?? imageButtonTextColor;
+        const imageButtonVarsStyle = this.buildStyleVars(btnBg, btnText);
 
         this.app.innerHTML = `
             <div class="image-page"${imagePageStyle}>

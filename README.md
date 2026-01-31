@@ -37,6 +37,8 @@ pages/mypage/
 ```json
 {
   "title": "我的页面",
+  "fontFamily": "Inter, sans-serif",
+  "fontUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
   "backgroundColor": "#111827",
   "pageBackgroundColor": "#0b0f19",
   "imageBackgroundColor": "#0a0a0a",
@@ -56,11 +58,22 @@ pages/mypage/
       "icon": "🎮",
       "image": "images/pic1.jpg",
       "link": "https://example.com?ref={ref}&channel={channel}",
-      "linkText": "前往"
+      "linkText": "前往",
+      "backgroundColor": "rgba(255,255,255,0.12)",
+      "textColor": "#ffffff"
     }
   ]
 }
 ```
+
+每个按钮可单独设置 `backgroundColor`、`textColor`，未设置时使用页面级 `pageButtonBackgroundColor`、`pageButtonTextColor`。
+
+### 自定义字体
+
+- **fontFamily**：字体族名，会应用到整页（标题、描述、按钮文字等），页面已有字重（400、600 等）会自动匹配。
+- **fontUrl**：字体 CSS 链接（如 Google Fonts 的链接）。若不填但填了 `fontFamily`，会自动用 Google Fonts 拉取该字体的 400、500、600、700 字重。
+
+示例：只填 `"fontFamily": "Noto Sans SC, sans-serif"` 即可使用思源黑体，无需自己写链接。
 
 ## URL 格式
 
