@@ -8,30 +8,34 @@
   "buttons": [
     {
       "text": "Buffet Mediodía 16.95€",
-      "icon": "",
+      "subtitle": "Lunes a Viernes 150 platos",
+      "icon": "🌞",
       "image": "images/LUNES A VIERNES 16.95.png",
-      "link": "https://example.com/product?ref={ref}",
+      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     },
     {
       "text": "Buffet Mediodía 20.95€",
-      "icon": "",
+      "subtitle": "Lunes a Viernes 191 platos",
+      "icon": "🌞",
       "image": "images/LUNES A VIERNES 20.95.png",
-      "link": "https://example.com/contact?source={query}",
+      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     },
     {
       "text": "Buffet Noche 22.95€",
-      "icon": "",
-      "image": "images/LUNES A VIERNES 22.95.png",
-      "link": "https://example.com/download?channel={channel}&ref={ref}",
+      "subtitle": "Lunes a Jueves 191 platos",
+      "icon": "🌛",
+      "image": "images/LUNES A VIERNES NOCHE 22.95.png",
+      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     },
     {
       "text": "Buffet 23.95€",
-      "icon": "",
+      "subtitle": "Fin de Semana y Festivo 191 platos",
+      "icon": "🎉",
       "image": "images/FESTIVOS 23.95.png",
-      "link": "https://example.com/download?channel={channel}&ref={ref}",
+      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     }
   ]
