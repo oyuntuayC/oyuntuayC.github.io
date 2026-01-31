@@ -1,0 +1,29 @@
+{
+  "title": "Kirinzi BBQ",
+  "description": "这里可以写一段简短描述，支持移动端展示",
+  "background": "background.jpg",
+  "logo": "logo.png",
+  "buttons": [
+    {
+      "text": "产品介绍",
+      "icon": "📦",
+      "image": "images/product.svg",
+      "link": "https://example.com/product?ref={ref}",
+      "linkText": "查看详情"
+    },
+    {
+      "text": "联系我们",
+      "icon": "📧",
+      "image": "images/contact.svg",
+      "link": "https://example.com/contact?source={query}",
+      "linkText": "立即联系"
+    },
+    {
+      "text": "下载应用",
+      "icon": "📱",
+      "image": "images/download.svg",
+      "link": "https://example.com/download?channel={channel}&ref={ref}",
+      "linkText": "立即下载"
+    }
+  ]
+}

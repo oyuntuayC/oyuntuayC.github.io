@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    color: #888;
+}
+
+/* 页面容器 */
+.page-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-overlay {
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* 头部 */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.logo {
+    max-height: 60px;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-desc {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* 按钮列表（Linktree 风格） */
+.buttons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-content: start;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.btn-card {
+    background: var(--btn-bg, rgba(255, 255, 255, 0.12));
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    color: var(--btn-text, #fff);
+}
+
+.btn-card:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.btn-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-card .icon {
+    font-size: 1.5rem;
+}
+
+.btn-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.btn-card .text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: inherit;
+}
+
+.btn-card .subtitle {
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.7;
+    color: inherit;
+}
+
+.btn-right {
+    font-size: 1.4rem;
+    opacity: 0.7;
+    color: inherit;
+}
+
+/* 图片页面 */
+.image-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 2rem 1rem 5rem;
+    background: #000;
+    position: relative;
+}
+
+.image-page .back-btn {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    z-index: 100;
+}
+
+.image-page .back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.image-scroll {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 3rem;
+}
+
+.image-page img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.image-link-float {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 680px;
+    z-index: 110;
+}
+
+.image-link-btn {
+    text-decoration: none;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease, filter 0.2s ease;
+}
+
+.image-link-btn .link-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    display: block;
+}
+
+.image-link-btn .link-text,
+.image-link-btn .btn-right {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease, max-width 0.25s ease;
+}
+
+.image-link-btn.is-compact {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    padding: 0;
+    pointer-events: none;
+    justify-content: center;
+    gap: 0;
+}
+
+.image-link-btn.is-compact .link-icon {
+    animation: bounce-down 1.2s ease-in-out infinite;
+}
+
+.image-link-btn.is-ready {
+    width: 100%;
+    height: 56px;
+    border-radius: 999px;
+    padding: 0 1.25rem;
+    justify-content: space-between;
+    pointer-events: auto;
+}
+
+.image-link-btn.is-ready .link-text,
+.image-link-btn.is-ready .btn-right {
+    opacity: 1;
+    transform: translateY(0);
+    max-width: 999px;
+}
+
+.image-link-btn .link-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.image-link-btn .btn-right {
+    max-width: 0;
+    overflow: hidden;
+}
+
+@keyframes bounce-down {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.85;
+    }
+    50% {
+        transform: translateY(6px);
+        opacity: 1;
+    }
+}
+
+/* 错误页面 */
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-page h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #e74c3c;
+}
+
+.error-page p {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+.error-page a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+/* 首页 */
+.home-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.home-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.home-page .subtitle {
+    color: #888;
+    margin-bottom: 3rem;
+}
+
+.pages-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.pages-list a {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.pages-list a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .page-overlay {
+        padding: 1rem;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .buttons-list {
+        gap: 0.75rem;
+    }
+
+    .btn-card {
+        padding: 0.85rem 1rem;
+    }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Index</title>
+    <script>
+        // GitHub Pages SPA 路由支持
+        // 将 404 请求重定向到首页，由前端 JS 处理路由
+        const path = window.location.pathname;
+        const query = window.location.search;
+        const hash = window.location.hash;
+        
+        // 保存当前路径到 sessionStorage，然后跳转到首页
+        sessionStorage.setItem('redirect_path', path + query + hash);
+        window.location.replace('/');
+    </script>
+</head>
+<body>
+    <p>正在跳转...</p>
+</body>
+</html>

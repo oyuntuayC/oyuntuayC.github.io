@@ -1,0 +1,38 @@
+{
+  "title": "",
+  "backgroundColor": "#ffffff",
+  "imageButtonBackgroundColor": "#000000",
+  "description": "En una mesa todos los comensales tienen que ser de la misma categoría",
+  "background": "background.jpg",
+  "logo": "logo.png",
+  "buttons": [
+    {
+      "text": "Buffet Mediodía 16.95€",
+      "icon": "",
+      "image": "images/LUNES A VIERNES 16.95.png",
+      "link": "https://example.com/product?ref={ref}",
+      "linkText": "Ver Carta"
+    },
+    {
+      "text": "Buffet Mediodía 20.95€",
+      "icon": "",
+      "image": "images/LUNES A VIERNES 20.95.png",
+      "link": "https://example.com/contact?source={query}",
+      "linkText": "Ver Carta"
+    },
+    {
+      "text": "Buffet Noche 22.95€",
+      "icon": "",
+      "image": "images/LUNES A VIERNES 22.95.png",
+      "link": "https://example.com/download?channel={channel}&ref={ref}",
+      "linkText": "Ver Carta"
+    },
+    {
+      "text": "Buffet 23.95€",
+      "icon": "",
+      "image": "images/FESTIVOS 23.95.png",
+      "link": "https://example.com/download?channel={channel}&ref={ref}",
+      "linkText": "Ver Carta"
+    }
+  ]
+}
