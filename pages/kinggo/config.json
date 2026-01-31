@@ -11,7 +11,7 @@
       "subtitle": "Lunes a Viernes 150 platos",
       "icon": "🌞",
       "image": "images/LUNES A VIERNES 16.95.png",
-      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
+      "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     },
     {
@@ -19,7 +19,7 @@
       "subtitle": "Lunes a Viernes 191 platos",
       "icon": "🌞",
       "image": "images/LUNES A VIERNES 20.95.png",
-      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
+      "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     },
     {
@@ -27,7 +27,7 @@
       "subtitle": "Lunes a Jueves 191 platos",
       "icon": "🌛",
       "image": "images/LUNES A VIERNES NOCHE 22.95.png",
-      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
+      "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     },
     {
@@ -35,7 +35,7 @@
       "subtitle": "Fin de Semana y Festivo 191 platos",
       "icon": "🎉",
       "image": "images/FESTIVOS 23.95.png",
-      "link": "https://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
+      "link": "http://app6.jt-kasse.com:2034/QRCODE/?no=4EgExJFCgrM%3d",
       "linkText": "Ver Carta"
     }
   ]
