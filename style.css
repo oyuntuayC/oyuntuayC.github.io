@@ -181,12 +181,14 @@ body {
 
 .image-scroll {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
     width: 100%;
     padding-bottom: 3rem;
 }
 
-.image-page img {
+.image-page .image-scroll img {
     width: 100%;
     max-width: 900px;
     height: auto;
