@@ -226,7 +226,10 @@ class AutoIndex {
             return;
         }
 
-        const imageUrl = this.getResourcePath(pagePath, button.image);
+        const imageList = Array.isArray(button.images) && button.images.length
+            ? button.images
+            : (button.image ? [button.image] : []);
+        const imageUrls = imageList.map(path => this.getResourcePath(pagePath, path));
         const finalLink = this.replaceQueryPlaceholder(button.link, queryString);
         const backUrl = `/${pagePath}${queryString ? '?' + queryString : ''}`;
         const imageTitle = button.text ? `${button.text} - ${config.title || pagePath}` : (config.title || pagePath);
@@ -242,12 +245,14 @@ class AutoIndex {
         const btnBg = button.backgroundColor ?? imageButtonBackgroundColor;
         const btnText = button.textColor ?? imageButtonTextColor;
         const imageButtonVarsStyle = this.buildStyleVars(btnBg, btnText);
+        const altText = button.text || '';
+        const imagesHtml = imageUrls.map(url => `<img src="${url}" alt="${altText}">`).join('');
 
         this.app.innerHTML = `
             <div class="image-page"${imagePageStyle}>
                 <button class="back-btn" aria-label="返回" onclick="window.location.href='${backUrl}'">←</button>
                 <div class="image-scroll">
-                    ${imageUrl ? `<img src="${imageUrl}" alt="${button.text}">` : ''}
+                    ${imagesHtml}
                 </div>
                 <div class="image-link-float">
                     <a href="${finalLink}" class="btn-card image-link-btn is-compact"${imageButtonVarsStyle}>
@@ -267,7 +272,7 @@ class AutoIndex {
 
     setupImageScrollBehavior() {
         const floatBtn = this.app.querySelector('.image-link-btn');
-        const image = this.app.querySelector('.image-scroll img');
+        const images = this.app.querySelectorAll('.image-scroll img');
         if (!floatBtn) return;
         const threshold = 60;
 
@@ -292,9 +297,15 @@ class AutoIndex {
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onScroll, { passive: true });
 
-        // 等图片加载完再做初次检测，避免高度不正确
-        if (image && !image.complete) {
-            image.addEventListener('load', () => setTimeout(updateState, 50));
+        // 等所有图片加载完再做初次检测，避免多图时高度不正确
+        const pending = Array.from(images).filter(img => !img.complete);
+        if (pending.length > 0) {
+            let loaded = 0;
+            const onLoad = () => {
+                loaded++;
+                if (loaded >= pending.length) setTimeout(updateState, 50);
+            };
+            pending.forEach(img => img.addEventListener('load', onLoad));
         } else {
             setTimeout(updateState, 50);
         }

@@ -1,0 +1,53 @@
+{
+  "title": "SUSHI URREA BILBAO",
+  "description": "Se usa los ingredientes de la más alta calidad para hacer la comida más deliciosa.",
+  "background": "background.jpg",
+  "backgroundColor": "#ffffff",
+  "imageButtonBackgroundColor": "#000000",
+  "logo": "logo.png",
+  "buttons": [
+    {
+      "text": "Buffet de mediodia",
+      "icon": "🌞",
+      "images": [
+        "images/Buffet dia_SUSHI URREA.png",
+        "images/alergeno.jpg"
+      ],
+      "link": "http://es2.wok-cloud.com:2024/QRCODE/?no={mesa}",
+      "linkText": "PEDIR AHORA",
+      "backgroundColor": "#F3BA53"
+    },
+    {
+      "text": "Buffet de noche",
+      "icon": "🌛",
+      "images": [
+        "images/Buffet Noche_SUSHI URREA.png",
+        "images/alergeno.jpg"
+      ],
+      "link": "http://es2.wok-cloud.com:2024/QRCODE/?no={mesa}",
+      "linkText": "PEDIR AHORA",
+      "backgroundColor": "#46443F"
+    },
+    {
+      "text": "Menú del día",
+      "icon": "📘",
+      "images": [
+        "images/Menú del dia _SUSHI URREA.png",
+        "images/alergeno.jpg"
+      ],
+      "link": "http://es2.wok-cloud.com:2024/QRCODE/?no={mesa}",
+      "linkText": "PEDIR AHORA",
+      "backgroundColor": "#6A4F01"
+    },
+    {
+      "text": "Para llevar",
+      "icon": "🛵",
+      "images": [
+        "images/alergeno.jpg"
+      ],
+      "link": "http://es2.wok-cloud.com:2024/QRCODE/?no={mesa}",
+      "linkText": "PEDIR AHORA",
+      "backgroundColor": "#CB662B"
+    }
+  ]
+}
